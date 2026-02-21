@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playfulness NIME</title>
+
+<style>
+
+/* -------------------- FONTS -------------------- */
+
+@font-face {
+  font-family: 'TerminalGrotesque';
+  src: url('public/fonts/terminal-grotesque.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'StandardBook';
+  src: url('public/fonts/standard-book-webfont.ttf') format('truetype');
+}
+
+/* -------------------- GLOBAL -------------------- */
+
+body {
+  margin: 0;
+  font-family: "StandardBook", sans-serif;
+  line-height: 1.7;
+  color: #222;
+  background-color: #fff;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "TerminalGrotesque", sans-serif;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* -------------------- HERO -------------------- */
+
+.hero {
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.hero-title {
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+}
+
+/* -------------------- IMAGE -------------------- */
+
+.teaser img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------- DATE + BUTTON -------------------- */
+
+.event-info {
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: "TerminalGrotesque", sans-serif;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background: #ff0000;
+  color: #000;
+}
+
+/* -------------------- TABLE -------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  font-family: "TerminalGrotesque", sans-serif;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+@media (max-width: 900px) {
+  .container {
+    width: 90%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2 class="hero-subtitle">NIME 2026</h2>
+    <h1 class="hero-title">Workshop on Playfulness in NIME</h1>
+  </section>
+
+  <!-- TEASER IMAGE -->
+  <section class="teaser">
+    <img src="Frame 85(1).png" alt="Workshop teaser image">
+  </section>
+
+  <!-- DATE + SIGNUP -->
+  <section class="event-info">
+    <h3>London, UK & Online</h3>
+    <h4>23–26 June 2026</h4>
+    <a href="#" class="button">Sign Up</a>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section>
+    <h2>Playfulness in NIME</h2>
+    <p>
+      Short motivation here.
+    </p>
+    <p>
+      In this workshop, we aim to explore playfulness in NIME by sharing 
+      experiences, methods, tools, and conceptual approaches.
+    </p>
+  </section>
+
+  <!-- WORKSHOP PLANS -->
+  <section>
+    <h2>Workshop Plans</h2>
+
+    <h3>Part 1</h3>
+    <p>Description of first part of workshop.</p>
+
+    <h3>Part 2</h3>
+    <p>Description of second part of workshop.</p>
+
+     <h3>Part 3</h3>
+    <p>Description of third part of workshop.</p>
+  </section>
+
+  <!-- WORKSHOP STRUCTURE / TABLE -->
+  <section>
+    <h2>Workshop Structure</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time (UTC+1)</th>
+          <th>Activity</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>13:30–13:40</td>
+          <td>Introduction</td>
+          <td>Workshop goals and schedule (organizers)</td>
+        </tr>
+        <tr>
+          <td>17:30</td>
+          <td>Closing</td>
+          <td>Conclusion, wrap up, and networking</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FINAL SIGNUP -->
+  <section>
+    <a href="#" class="button">Sign Up</a>
+  </section>
+
+</div>
+
+</body>
+</html>
