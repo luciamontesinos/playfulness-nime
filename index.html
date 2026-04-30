@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Playfulness NIME</title>
+<title>It's Play NIME</title>
 
 <style>
 
@@ -19,119 +19,514 @@
   src: url('public/fonts/standard-book-webfont.ttf') format('truetype');
 }
 
+/* -------------------- COLOR PALETTE -------------------- */
+
+:root {
+  --bg-primary: #faf9f7;
+  --bg-secondary: #f0ede8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --accent: #e85d04;
+  --accent-hover: #d45003;
+  --border: #d4d1cc;
+  --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --accent: #ff7b29;
+  --accent-hover: #ff9454;
+  --border: #333333;
+  --card-bg: #161616;
+}
+
 /* -------------------- GLOBAL -------------------- */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: "StandardBook", sans-serif;
-  line-height: 1.7;
-  color: #222;
-  background-color: #fff;
+  line-height: 1.8;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* -------------------- LAVA LAMP BLOBS -------------------- */
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  z-index: 0;
+  animation: bounce 8s ease-in-out infinite;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #48dbfb, #1dd1a1);
+  top: 50%;
+  right: -80px;
+  animation-delay: -2s;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #a55eea, #ff6b6b);
+  bottom: -100px;
+  left: 30%;
+  animation-delay: -4s;
+}
+
+.blob-4 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #feca57, #48dbfb);
+  top: 60%;
+  left: -60px;
+  animation-delay: -6s;
+}
+
+.blob-5 {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, #ff9ff3, #54a0ff);
+  top: 20%;
+  left: 60%;
+  animation-delay: -1s;
+}
+
+.blob-6 {
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, #00d2d3, #ff9f43);
+  bottom: 20%;
+  right: 10%;
+  animation-delay: -3s;
+}
+
+.blob-7 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #5f27cd, #00d2d3);
+  top: 80%;
+  right: 30%;
+  animation-delay: -5s;
+}
+
+/* -------------------- BLOB BURST EFFECT -------------------- */
+
+.blob {
+  transform-origin: center center;
+}
+
+.blob.burst {
+  animation: burst 0.6s ease-out forwards !important;
+  pointer-events: none;
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.02);
+  }
 }
 
 .container {
-  width: 70%;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 60px 24px;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container > * {
+  pointer-events: auto;
 }
 
 section {
-  margin-bottom: 50px;
+  margin-bottom: 64px;
 }
 
 h1, h2, h3, h4 {
   font-family: "TerminalGrotesque", sans-serif;
-  margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.15;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-top: 30px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-top: 40px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--text-primary);
+  display: inline-block;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   margin-top: 20px;
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: var(--text-secondary);
 }
 
 p {
-  text-align: left;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 /* -------------------- HERO -------------------- */
 
 .hero {
-  padding-top: 40px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
-.hero-title {
-  margin-bottom: 10px;
+.hero-badge {
+  display: inline-block;
+  font-family: "TerminalGrotesque", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  margin-bottom: 20px;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-family: "TerminalGrotesque", sans-serif;
 }
 
-/* -------------------- IMAGE -------------------- */
+.hero-title {
+  margin-bottom: 24px;
+}
+
+/* -------------------- TEASER IMAGE -------------------- */
+
+.teaser {
+  margin: 48px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
 
 .teaser img {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 0.5s ease;
 }
 
-/* -------------------- DATE + BUTTON -------------------- */
+.teaser:hover img {
+  transform: scale(1.02);
+}
+
+/* -------------------- EVENT INFO -------------------- */
 
 .event-info {
-  margin-top: 30px;
+  margin-top: 40px;
+  padding: 32px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
+.event-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.event-location {
+  font-family: "TerminalGrotesque", sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.event-date {
+  font-family: "TerminalGrotesque", sans-serif;
+  font-size: 1.3rem;
+  margin: 8px 0 0 0;
+  color: var(--text-primary);
+}
+
+/* -------------------- BUTTON -------------------- */
+
 .button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  border: 1px solid #000;
-  background: #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--accent);
   color: #fff;
   text-decoration: none;
   font-family: "TerminalGrotesque", sans-serif;
-  transition: 0.3s ease;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
 .button:hover {
-  background: #ff0000;
-  color: #000;
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 93, 4, 0.25);
+}
+
+/* -------------------- WORKSHOP PLANS -------------------- */
+
+.workshop-part {
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 16px;
+  width: 100%;
+  text-align: left;
+  
 }
 
 /* -------------------- TABLE -------------------- */
 
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  background: var(--card-bg);
 }
 
 th, td {
-  border: 1px solid #000;
-  padding: 12px;
+  padding: 16px 20px;
   text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 
 th {
   font-family: "TerminalGrotesque", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+td {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: var(--bg-secondary);
+}
+
+/* -------------------- FOOTER -------------------- */
+
+footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
 /* -------------------- RESPONSIVE -------------------- */
 
-@media (max-width: 900px) {
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* -------------------- FLOATING HINT MESSAGE -------------------- */
+
+.blob-hint {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 12px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  animation: float-hint 3s ease-in-out infinite;
+}
+
+.blob-hint span {
+  font-family: "TerminalGrotesque", sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+@keyframes float-hint {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+/* Hide hint on mobile */
+@media (max-width: 600px) {
+  .blob-hint {
+    display: none;
+  }
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+@media (max-width: 600px) {
   .container {
-    width: 90%;
+    padding: 40px 20px;
+  }
+  
+  .event-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Disable animations on mobile for performance */
+  .blob {
+    animation: none !important;
+    opacity: 0.4;
+  }
+  
+  .blob:hover {
+    animation: none !important;
+  }
+  
+  /* Dark mode toggle hidden on mobile initially */
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -140,35 +535,73 @@ th {
 
 <body>
 
+<!-- Theme toggle button -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+  <!-- Moon icon (shown in light mode) -->
+  <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <!-- Sun icon (shown in dark mode) -->
+  <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+  </svg>
+</button>
+
+<!-- Floating instruction message -->
+<div class="blob-hint">
+  <span>Hover over the blobs to pop them</span>
+</div>
+
+<!-- Lava lamp background blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+<div class="blob blob-4"></div>
+<div class="blob blob-5"></div>
+<div class="blob blob-6"></div>
+<div class="blob blob-7"></div>
+
 <div class="container">
 
   <!-- HERO -->
   <section class="hero">
-    <h2 class="hero-subtitle">NIME 2026</h2>
-    <h1 class="hero-title">Workshop on Playfulness in NIME</h1>
+    <p class="hero-subtitle">NIME 2026 Workshop</p>
+    <h1 class="hero-title">It's Play NIME:Mapping Playfulness in NIME </h1>
   </section>
 
   <!-- TEASER IMAGE -->
   <section class="teaser">
-    <img src="Frame 85(1).png" alt="Workshop teaser image">
+    <img src="public/images/playing.png" alt="on the left is a picnic basket on a checkered blanket with a variety of accessories, on the right is two people in a hallway touching tentacles that extend from a wall">
   </section>
 
   <!-- DATE + SIGNUP -->
   <section class="event-info">
-    <h3>London, UK & Online</h3>
-    <h4>23–26 June 2026</h4>
-    <a href="#" class="button">Sign Up</a>
+    <div class="event-details">
+      <p class="event-location">London, UK &amp; Online</p>
+      <p class="event-date">23–26 June 2026</p>
+    </div>
+    <a href="https://forms.gle/uRDoQLoWvHWspTWn6" class="button">Sign Up →</a>
   </section>
 
   <!-- DESCRIPTION -->
   <section>
     <h2>Playfulness in NIME</h2>
     <p>
-      Short motivation here.
+      The NIME community frequently uses the terms "playful" to describe their works, yet lacks consensus on what playfulness means in this context. Existing NIME research draws from different play frameworks, with some works emphasising providing flow states, and others focusing on appropriation and subversion. This workshop brings together artists and researchers in the community to collectively address this conceptual ambiguity. Through a participatory approach, we aim to explore together the diverse understandings of playfulness in NIME and strengthen the network among researchers and practitioners interested in the topic.
     </p>
+      </section>
+   <section>
+    <h2>Call for participation</h2>
     <p>
-      In this workshop, we aim to explore playfulness in NIME by sharing 
-      experiences, methods, tools, and conceptual approaches.
+      Artists, designers, researchers, musicians, and creative practitioners at NIME who are interested in play and playfulness for music interfaces, who wish to learn more about these topics, or who are actively contributing knowledge in this area, are invited to participate in this workshop examining playfulness in NIME. Although "playful" and "playfulness" are frequently referenced in NIME literature to describe interfaces, experiences, and interactions, there is little discussion of how the NIME community experiences play. In the workshop, we will explore playfulness through group ideation and discussion. We encourage prospective attendees to submit a short abstract or video of their approach to play if they wish to present during the workshop. Our session will also include a Show \& Tell session in which attendees are invited to share their NIMEs.
     </p>
   </section>
 
@@ -176,14 +609,20 @@ th {
   <section>
     <h2>Workshop Plans</h2>
 
-    <h3>Part 1</h3>
-    <p>Description of first part of workshop.</p>
+    <div class="workshop-part">
+      <h3>Part 1: Introduction</h3>
+      <p>The workshop will open with a warm-up activity to help participants get to know one another and encourage engagement throughout the workshop. We will then introduce key concepts of and frameworks for playfulness, followed by presentations from participants who have pre-submitted their approaches to play. Participants will present individual perspectives on approaches to play and on how playful approaches can be incorporated into both the design and performance of NIME, providing a background to stimulate discussion.</p>
+    </div>
 
-    <h3>Part 2</h3>
-    <p>Description of second part of workshop.</p>
+    <div class="workshop-part">
+      <h3>Part 2: Collective ideation and group work</h3>
+      <p>All participants will engage in a structured ideation session focused on mapping playfulness within NIME, employing the 1-2-4-All discussion method. This approach is designed to foster active participation by progressing through a series of stages: participants ideation individually, then collaborate in pairs, followed by discussion in groups of four. In the final stage, each group of four shares their outcomes with the larger group, facilitating collective reflection and synthesis. Following the collaborative mapping of playfulness within NIME, participants will be organised into groups. Each group will select a specific aspect identified during the ideation process and propose design and research approaches that may foster that dimension of playfulness </p>
+    </div>
 
-     <h3>Part 3</h3>
-    <p>Description of third part of workshop.</p>
+    <div class="workshop-part">
+      <h3>Part 3: Discussion, Show & Tell and networking</h3>
+      <p>Participant groups will present their approaches to playfulness and discuss them with the other participants. We will then wrap up the discussion and facilitate an informal Show & Tell session for participants to share their creative playful work. The session will finish with time for networking.</p>
+    </div>
   </section>
 
   <!-- WORKSHOP STRUCTURE / TABLE -->
@@ -195,30 +634,177 @@ th {
         <tr>
           <th>Time (UTC+1)</th>
           <th>Activity</th>
-          <th>Description</th>
+          <th>Duration</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>13:30–13:40</td>
-          <td>Introduction</td>
-          <td>Workshop goals and schedule (organizers)</td>
+          <td>TBC</td>
+          <td>Warm-up exercise</td>
+          <td>20 mins</td>
+        </tr>
+         <tr>
+          <td>TBC</td>
+          <td>Presentations from participants</td>
+          <td>35 mins</td>
         </tr>
         <tr>
-          <td>17:30</td>
-          <td>Closing</td>
-          <td>Conclusion, wrap up, and networking</td>
+          <td>TBC</td>
+          <td>Presentation on Playfulness</td>
+          <td>15 mins</td>
         </tr>
+        <tr>
+          <td>TBC</td>
+          <td>Break</td>
+          <td>15 mins</td>
+        </tr>
+         <tr>
+          <td>TBC</td>
+          <td>1-2-4-All Ideation activity</td>
+          <td>30 mins</td>
+        </tr>
+          <tr>
+          <td>TBC</td>
+          <td>Response to ideation in Groups</td>
+          <td>30 mins</td>
+        </tr>
+        <tr>
+          <td>TBC</td>
+          <td>Break</td>
+          <td>15 mins</td>
+        </tr>
+         <tr>
+          <td>TBC</td>
+          <td>Group presentations and Discussion</td>
+          <td>30 mins</td>
+         </tr>
+          <tr>
+            <td>TBC</td>
+            <td>Closing comments</td>
+            <td>10 mins</td>
+          </tr>
+           <tr>
+            <td>TBC</td>
+            <td>Show & Tell</td>
+            <td>20 mins</td>
+          </tr>
+          <tr>
+            <td>TBC</td>
+            <td>Networking</td>
+            <td>32 mins</td>
+          </tr>
       </tbody>
     </table>
   </section>
 
-  <!-- FINAL SIGNUP -->
   <section>
-    <a href="#" class="button">Sign Up</a>
+    <h2> About the organisers</h2>
+    <p><strong>Lucía Montesinos</strong> [she/her] is a creative technologist and design researcher, currently a PhD fellow at the IT University of Copenhagen. Her practice-based research engages with HCI and NIME, exploring how technology can invite us to participate, create, play, and pay attention to the world around us, with a current focus on designing playful musicking experiences.</p>
+    <p><strong>Tara Pattenden</strong> [she/her] is an instrument developer, performer and artist working with malleable technologies for interactive installations and participatory performance.  She is currently a PhD candidate the Queensland Conservatorium, Griffith University where her project explores how craft based, wearable and tactile instruments can enhance participatory performance for playful co-collaborative creative experiences. </p>
+    <p><strong>Lia Mice</strong> [she/her] is an award-winning mixed media artist of oversized sculptural musical instruments, educator and live performer. For over 20 years, Mice has prolifically produced a diverse body of work, frenetically shape shifting through multidisciplinary practices and international music and art scenes. At the core of her creative approach is a joyful DIY ethic: creating with what she has, without waiting for resources or permission.</p>
   </section>
 
+  <!-- FINAL SIGNUP -->
+  <section>
+    <a href="https://forms.gle/uRDoQLoWvHWspTWn6" class="button">Sign Up →</a>
+  </section>
+
+  <footer>
+    <p>2026 It's Play NIME • Lucía Montesinos, Tara Pattenden & Lia Mice</p>
+  </footer>
+
 </div>
+
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    
+    if (html.getAttribute('data-theme') === 'dark') {
+      html.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  // Create a simple pop sound using Web Audio API
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  
+  function playPopSound(pitch = 1) {
+    // Create oscillator for the pop
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    // Randomize pitch slightly for variety
+    oscillator.frequency.value = 300 * pitch + Math.random() * 100;
+    oscillator.type = 'sine';
+    
+    // Quick attack, fast decay for pop sound
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.15);
+  }
+  
+  // Track hover time for each blob
+  const blobHoverTimes = {};
+  const HOVER_DURATION = 1500; // 1.5 seconds to trigger burst
+  
+  // Add event listeners to all blobs
+  document.querySelectorAll('.blob').forEach((blob, index) => {
+    let hoverTimer = null;
+    
+    blob.addEventListener('mouseenter', () => {
+      blobHoverTimes[index] = Date.now();
+      
+      // Start a timer to check if hover lasts long enough
+      hoverTimer = setTimeout(() => {
+        // Check if still hovering after delay
+        if (blobHoverTimes[index] && Date.now() - blobHoverTimes[index] >= HOVER_DURATION) {
+          // Trigger burst effect - pause the bounce animation first
+          blob.style.animationPlayState = 'paused';
+          blob.classList.add('burst');
+          
+          // Play pop sound with varied pitch
+          playPopSound(0.8 + Math.random() * 0.4);
+          
+          // Remove from DOM after animation
+          setTimeout(() => {
+            blob.style.display = 'none';
+          }, 600);
+          
+          // Respawn blob after a delay
+          setTimeout(() => {
+            blob.classList.remove('burst');
+            blob.style.display = 'block';
+            blob.style.animationPlayState = 'running';
+            blobHoverTimes[index] = null;
+          }, 2000 + Math.random() * 1000);
+        }
+      }, HOVER_DURATION);
+    });
+    
+    blob.addEventListener('mouseleave', () => {
+      // Cancel the timer if user leaves before 1.5 seconds
+      if (hoverTimer) {
+        clearTimeout(hoverTimer);
+        blobHoverTimes[index] = null;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
