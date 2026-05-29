@@ -286,15 +286,39 @@ p {
 
 .event-info {
   margin-top: 40px;
-  padding: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  padding: 28px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.info-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(232, 93, 4, 0.1);
+}
+
+.info-title {
+  font-family: "TerminalGrotesque", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.info-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
 }
 
 .event-details {
@@ -493,8 +517,7 @@ footer {
   }
   
   .event-info {
-    flex-direction: column;
-    text-align: center;
+    grid-template-columns: 1fr;
   }
   
   .button {
@@ -572,6 +595,9 @@ footer {
     <p class="hero-subtitle">NIME 2026 Workshop</p>
     <h1 class="hero-title">It's Play NIME</h1>
     <h1 class="hero-title">Mapping Playfulness in NIME</h1>
+      <p class="event-date"> Loughborough University of London East Campus,London, UK &amp; Online</p>
+      <p class="event-date">09:00 - 13:00 Tuesday, 23 June 2026</p>
+      
   </section>
 
   <!-- TEASER IMAGE -->
@@ -580,13 +606,9 @@ footer {
   </section>
 
   <!-- DATE + SIGNUP -->
-  <section class="event-info">
-    <div class="event-details">
-      <p class="event-location">London, UK &amp; Online</p>
-      <p class="event-date">23–26 June 2026</p>
-    </div>
-    <a href="https://forms.gle/uRDoQLoWvHWspTWn6" class="button">Sign Up →</a>
-  </section>
+    
+
+
 
   <!-- DESCRIPTION -->
   <section>
@@ -595,6 +617,34 @@ footer {
       The NIME community frequently uses the terms "playful" to describe their works, yet lacks consensus on what playfulness means in this context. Existing NIME research draws from different play frameworks, with some works emphasising providing flow states, and others focusing on appropriation and subversion. This workshop brings together artists and researchers in the community to collectively address this conceptual ambiguity. Through a participatory approach, we aim to explore together the diverse understandings of playfulness in NIME and strengthen the network among researchers and practitioners interested in the topic.
     </p>
       </section>
+
+
+        <section class="event-info">
+    <div class="info-card">
+      <h3 class="info-title">Official Sign Up</h3>
+      <p class="info-description">Join us for this exciting workshop on playfulness in NIME. Register your spot now! (Deadline 19th June)</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSehD0DeQe13SQnO_xjH9zJc6_9RFFjH8CJPXdlP7BgeCYTOSA/viewform" class="button">Sign Up →</a>
+    </div>
+
+    <div class="info-card">
+      <h3 class="info-title">Participant Form</h3>
+      <p class="info-description">Already signed up? Please fill out this short form to help us prepare better for you.</p>
+      <a href="https://forms.gle/uRDoQLoWvHWspTWn6" class="button">Fill Form →</a>
+    </div>
+
+    <div class="info-card">
+      <h3 class="info-title">Discord Channel</h3>
+      <p class="info-description">Join our community on Discord to discuss playfulness in NIME</p>
+      <a href="https://discord.gg/uFpSqx7TB2" class="button">Join Discord →</a>
+    </div>
+
+    <div class="info-card">
+      <h3 class="info-title">Evening Workshop</h3>
+      <p class="info-description">Interested in more? Join the workshop on Playfulness and AI in the evening!</p>
+      <a href="https://sites.google.com/view/nime26-workshop/home" class="button">Learn More →</a>
+    </div>
+  </section>
+
    <section>
     <h2>Call for participation</h2>
     <p>
@@ -636,59 +686,59 @@ footer {
       </thead>
       <tbody>
         <tr>
-          <td>TBC</td>
+          <td>09:00</td>
           <td>Warm-up exercise</td>
           <td>20 mins</td>
         </tr>
          <tr>
-          <td>TBC</td>
+          <td>09:20</td>
           <td>Presentations from participants</td>
           <td>35 mins</td>
         </tr>
         <tr>
-          <td>TBC</td>
+          <td>09:55</td>
           <td>Presentation on Playfulness</td>
           <td>15 mins</td>
         </tr>
         <tr>
-          <td>TBC</td>
+          <td>10:10</td>
           <td>Break</td>
           <td>15 mins</td>
         </tr>
          <tr>
-          <td>TBC</td>
+          <td>10:25</td>
           <td>1-2-4-All Ideation activity</td>
           <td>30 mins</td>
         </tr>
           <tr>
-          <td>TBC</td>
+          <td>10:55</td>
           <td>Response to ideation in Groups</td>
           <td>30 mins</td>
         </tr>
         <tr>
-          <td>TBC</td>
+          <td>11:25</td>
           <td>Break</td>
           <td>15 mins</td>
         </tr>
          <tr>
-          <td>TBC</td>
+          <td>11:40</td>
           <td>Group presentations and Discussion</td>
           <td>30 mins</td>
          </tr>
           <tr>
-            <td>TBC</td>
+            <td>12:10</td>
             <td>Closing comments</td>
             <td>10 mins</td>
           </tr>
            <tr>
-            <td>TBC</td>
+            <td>12:20</td>
             <td>Show & Tell</td>
             <td>20 mins</td>
           </tr>
           <tr>
-            <td>TBC</td>
+            <td>12:40</td>
             <td>Networking</td>
-            <td>32 mins</td>
+            <td>20 mins</td>
           </tr>
       </tbody>
     </table>
@@ -702,8 +752,9 @@ footer {
   </section>
 
   <!-- FINAL SIGNUP -->
-  <section>
-    <a href="https://forms.gle/uRDoQLoWvHWspTWn6" class="button">Sign Up →</a>
+    <section>
+    <h2> Contact</h2>
+    <p>For any questions about the workshop, please contact Lucía at <a href="mailto:lumo@itu.dk">lumo@itu.dk</a></p>
   </section>
 
   <footer>
